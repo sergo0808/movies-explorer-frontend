@@ -1,23 +1,46 @@
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom'
 import './App.css';
+import Main from '../Main/Main'
+import Login from '../Login/Login'
+import Register from '../Register/Register'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
+import Navigation from '../Navigation /Navigation '
+import ProtectedRoute from '../ProtectedRoute'
+import Movies from '../Movies/Movies'
+import SavedMovies from '../SavedMovies/SavedMovies'
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Switch>
+        <ProtectedRoute
+          exact
+          path="/"
+          component={Main}
+        />
+        <Route path='/movies'>
+          <Movies />
+        </Route>
+        <Route path='/saved-movies'>
+          <SavedMovies />
+        </Route>
+        <Route path='/profile'></Route>
+        <Route path="/signin">
+          <Login />
+        </Route>
+        <Route path="/signup">
+          <Register />
+        </Route>
+        {/* <Route path="/">{loggedIn ? <Redirect to="/" /> : <Redirect to="/signin" />}</Route> */}
+      </Switch>
+      <Navigation />
+      <Footer />
+
+
     </div>
   );
 }

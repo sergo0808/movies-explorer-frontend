@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 13px;
+  padding-bottom: 20px;
+  padding-left: 70px;
+  padding-right: 71px;
+}
+
+.header__info {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.header__logo {
+  margin-top: 5px;
+}
+
+.header__link-signup {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #000000;
+  margin-right: 30px;
+  margin-top: 8px;
+  text-decoration: none;
+}
+
+.header__link-signin {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 8px 20px;
+  background: #2be080;
+  border-radius: 3px;
+  text-decoration: none;
+}

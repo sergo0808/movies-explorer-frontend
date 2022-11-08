@@ -1,0 +1,25 @@
+.nabtab {
+  align-self: flex-end;
+  margin-top: 10px;
+}
+.navtab__links {
+  padding: 0px;
+  margin: 0;
+  display: flex;
+  column-gap: 10px;
+  list-style-type: none;
+}
+
+.navtab__link {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+
+  text-decoration: none;
+  color: black;
+  padding: 10px 17px;
+  background: #e8e8e8;
+  border-radius: 10px;
+}

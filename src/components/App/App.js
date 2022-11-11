@@ -5,10 +5,10 @@ import Main from '../Main/Main'
 // import Login from '../Login/Login'
 // import Register from '../Register/Register'
 import Header from '../Header/Header'
-// import Footer from '../Footer/Footer'
+import Footer from '../Footer/Footer'
 // import Navigation from '../Navigation/Navigation'
 // // import ProtectedRoute from '../ProtectedRoute'
-// import Movies from '../Movies/Movies'
+import Movies from '../Movies/Movies'
 // import SavedMovies from '../SavedMovies/SavedMovies'
 
 
@@ -24,7 +24,7 @@ function App() {
         </Route>
 
         <Route path='/movies'>
-          {/* <Movies /> */}
+          <Movies />
         </Route>
         <Route path='/saved-movies'>
           {/* <SavedMovies /> */}

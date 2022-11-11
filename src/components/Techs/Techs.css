@@ -44,6 +44,7 @@
 .about-techs__list-technology {
   margin: 0;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   padding-top: 100px;
   padding-left: 0;

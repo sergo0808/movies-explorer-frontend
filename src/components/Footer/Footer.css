@@ -1,0 +1,50 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 80px;
+  padding-bottom: 20px;
+  padding-left: 70px;
+  padding-right: 70px;
+  background: #fafafa;
+}
+
+.footer__title {
+  margin: 0;
+  margin-bottom: 20px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e8e8e8;
+  color: #a0a0a0;
+}
+
+.footer__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+  text-align: right;
+}
+.footer__links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: #000000;
+}
+
+.footer__year {
+  margin: 0;
+}

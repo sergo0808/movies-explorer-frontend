@@ -39,7 +39,7 @@ function App() {
         {/* <Route path="/">{loggedIn ? <Redirect to="/" /> : <Redirect to="/signin" />}</Route> */}
       </Switch>
       {/* <Navigation /> */}
-      {/* <Footer /> */}
+      <Footer />
 
 
     </div>

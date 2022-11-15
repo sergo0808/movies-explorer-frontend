@@ -23,6 +23,7 @@
 
 .search-form__input {
   padding-left: 22px;
+  outline: none;
   border: none;
   background: #f9f9f9;
   width: 90%;
@@ -30,6 +31,7 @@
   font-size: 18px;
   line-height: 20px;
   color: #a0a0a0;
+  opacity: 1;
 }
 
 .search-form__lupa {
@@ -44,9 +46,6 @@
   width: 80px;
   border: none;
   box-sizing: border-box;
-}
-
-.search-form__border {
 }
 
 .checkbox {

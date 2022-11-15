@@ -11,6 +11,7 @@ import Profile from '../Profile/Profile';
 // // import ProtectedRoute from '../ProtectedRoute'
 import Movies from '../Movies/Movies'
 import SavedMovies from '../SavedMovies/SavedMovies'
+import PageNotFound from '../PageNotFound/PageNotFound';
 
 
 
@@ -23,7 +24,6 @@ function App() {
           path="/">
           <Main />
         </Route>
-
         <Route path='/movies'>
           <Movies />
           <Footer />
@@ -42,6 +42,9 @@ function App() {
           <Register />
         </Route>
         {/* <Route path="/">{loggedIn ? <Redirect to="/" /> : <Redirect to="/signin" />}</Route> */}
+        <Route path="*">
+          <PageNotFound />
+        </Route>
       </Switch>
       {/* <Navigation /> */}
 

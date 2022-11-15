@@ -46,7 +46,21 @@ function Header(props) {
         </Link>
       </Route>
       <Route path="/signup"></Route>
-      <Route path="/signin"></Route>
+      <Route path="/signup"></Route>
+      <Route path="/profile">
+        <div className="header__info">
+          <img className="header__logo" src={headerLogo} alt="Логотип" />
+          <Link className="header__link-movies" to="/movies">
+            Фильмы
+          </Link>
+          <Link className="header__link-movies" to="/saved-movies">
+            Сохранённые фильмы
+          </Link>
+        </div>
+        <Link className="header__link-profile" to="/profile">
+          Аккаунт
+        </Link>
+      </Route>
     </div>
   );
 }

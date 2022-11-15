@@ -6,6 +6,7 @@ import Login from '../Login/Login'
 import Register from '../Register/Register'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
+import Profile from '../Profile/Profile';
 // import Navigation from '../Navigation/Navigation'
 // // import ProtectedRoute from '../ProtectedRoute'
 import Movies from '../Movies/Movies'
@@ -31,7 +32,9 @@ function App() {
           <SavedMovies />
           <Footer />
         </Route>
-        <Route path='/profile'></Route>
+        <Route path='/profile'>
+          <Profile />
+        </Route>
         <Route path="/signin">
           <Login />
         </Route>

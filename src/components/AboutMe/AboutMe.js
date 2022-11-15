@@ -1,6 +1,7 @@
 import React from "react";
 import "./AboutMe.css";
 import arrow from '../../image/link_img.svg'
+import imageMe from '../../image/me.jpg'
 
 function AboutMe() {
   return (
@@ -18,6 +19,7 @@ function AboutMe() {
           Github
         </a>
         <p className="about-me__portfolio-text">Портфолио</p>
+        <img className="about-me__image-me" src={imageMe} alt="Моё фото" />
         <ul className="about-me__list-links">
           <li className="list-links__container">
             <a className="about-me__list-link" href="fdg">

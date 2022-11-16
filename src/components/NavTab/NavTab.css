@@ -11,8 +11,6 @@
 }
 
 .navtab__link {
-  font-family: "Inter";
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
@@ -21,4 +19,11 @@
   padding: 10px 17px;
   background: #e8e8e8;
   border-radius: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .navtab__link {
+    font-size: 10px;
+    padding: 10px 17px;
+  }
 }

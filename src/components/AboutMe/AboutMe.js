@@ -8,6 +8,7 @@ function AboutMe() {
     <section className="about-me">
       <h2 className="about-me__title">Студент</h2>
       <div className="about-me__container">
+        <img className="about-me__image-me" src={imageMe} alt="Моё фото" />
         <h3 className="about-me__subtitle">Сергей</h3>
         <p className="about-me__spicialist">Фронтенд-разработчик, 32 года</p>
         <p className="about-me__text">
@@ -19,7 +20,7 @@ function AboutMe() {
           Github
         </a>
         <p className="about-me__portfolio-text">Портфолио</p>
-        <img className="about-me__image-me" src={imageMe} alt="Моё фото" />
+
         <ul className="about-me__list-links">
           <li className="list-links__container">
             <a className="about-me__list-link" href="fdg">

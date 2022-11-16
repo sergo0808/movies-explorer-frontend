@@ -23,6 +23,7 @@ function App() {
         <Route exact
           path="/">
           <Main />
+          <Footer />
         </Route>
         <Route path='/movies'>
           <Movies />

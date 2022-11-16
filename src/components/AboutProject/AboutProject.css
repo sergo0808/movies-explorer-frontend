@@ -2,11 +2,37 @@
   padding: 110px 70px;
 }
 
+@media screen and (max-width: 768px) {
+  .about-project {
+    padding: 89px 48px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-project {
+    padding: 71px 18px;
+    padding-bottom: 27px;
+  }
+}
+
 .about-project__text {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 110px;
+}
+
+@media screen and (max-width: 768px) {
+  .about-project__text {
+    padding-bottom: 94px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-project__text {
+    flex-direction: column;
+    padding-bottom: 60px;
+  }
 }
 
 .about-project__title {
@@ -22,10 +48,30 @@
   color: #000000;
 }
 
+@media screen and (max-width: 500px) {
+  .about-project__title {
+    font-size: 18px;
+    padding-bottom: 27px;
+    line-height: 22px;
+  }
+}
+
 .about-project__container {
   padding-top: 70px;
-  display: flex;
-  flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  .about-project__container {
+    max-width: 320px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-project__container {
+    flex-direction: column;
+    padding-top: 61px;
+    max-width: 284px;
+  }
 }
 
 .about-project__brief {
@@ -36,6 +82,13 @@
   font-size: 20px;
   line-height: 24px;
   letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 500px) {
+  .about-project__brief {
+    font-size: 18px;
+    line-height: 22px;
+  }
 }
 
 .about-project__paragraph {
@@ -49,12 +102,42 @@
   line-height: 20px;
 }
 
+@media screen and (max-width: 768px) {
+  .about-project__paragraph {
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-project__paragraph {
+    margin-top: 13px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+}
+
 .about-project__schedule {
   display: grid;
   align-content: center;
   gap: 14px 0px;
   grid-template-columns: min(228px) 1fr;
   grid-template-rows: 36px 17px;
+}
+
+@media screen and (max-width: 768px) {
+  .about-project__schedule {
+    grid-template-columns: min(142px) 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-project__schedule {
+    gap: 8px 0px;
+    grid-template-columns: min(99px) 1fr;
+  }
 }
 
 .schedule__green {
@@ -76,6 +159,13 @@
   align-items: center;
 }
 
+@media screen and (max-width: 500px) {
+  .schedule__text {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}
+
 .schedule__text-frontend {
   background-color: #f2f2f2;
 }
@@ -89,4 +179,11 @@
   line-height: 17px;
   color: #a0a0a0;
   text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+  .schedule__lable {
+    font-size: 11px;
+    line-height: 13px;
+  }
 }

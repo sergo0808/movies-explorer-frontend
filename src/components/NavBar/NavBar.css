@@ -1,0 +1,147 @@
+.nav-bar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  visibility: hidden;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  opacity: 0;
+  transition-property: visibility, opacity;
+  transition-duration: 0.5s, 0.5s;
+  transition-timing-function: ease, linear;
+  transition-delay: 0s, 0s;
+}
+
+.nav-bar_active {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.nav-bar__container {
+  display: flex;
+  padding-bottom: 4px;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 520px;
+  background-color: white;
+  height: 100vh;
+}
+
+@media screen and (max-width: 760px) {
+  .nav-bar__container {
+    width: 100vh;
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .nav-bar__container {
+    padding-bottom: 181px;
+  }
+}
+
+.nav-bar_opened {
+  visibility: visible;
+  opacity: 1;
+}
+
+.nav-bar__links {
+  margin: 0;
+  padding: 0;
+  padding-top: 156px;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+  .nav-bar__links {
+    padding-top: 147px;
+  }
+}
+
+.links__container {
+  text-decoration: none;
+  margin-bottom: 28px;
+}
+
+@media screen and (max-width: 500px) {
+  .links__container {
+    margin-bottom: 24px;
+  }
+}
+
+.container__link {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #000000;
+}
+
+.container__link_active {
+  border-bottom: 2px solid black;
+  padding-bottom: 4px;
+}
+
+.container__link-profile {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration: none;
+  color: black;
+  width: 100px;
+  background: #e8e8e8;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.nav-bar__btn-close {
+  position: absolute;
+  right: 43px;
+  top: 23px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  .nav-bar__btn-close {
+    right: 27px;
+    top: 20px;
+  }
+}
+
+.nav-bar__btn-close::before,
+.nav-bar__btn-close::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #000;
+}
+
+.nav-bar__btn-close::before {
+  transform: rotate(45deg);
+}
+
+.nav-bar__btn-close::after {
+  transform: rotate(-45deg);
+}

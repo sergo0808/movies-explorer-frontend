@@ -1,0 +1,143 @@
+.navigation {
+  display: flex;
+  width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .navigation {
+    justify-content: flex-end;
+  }
+}
+
+.navigation__info {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.navigation__info-auth {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .navigation__info-auth {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navigation__info {
+    gap: 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .navigation__info {
+    display: none;
+  }
+}
+
+.navigation__link-signup {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #000000;
+  margin-right: 30px;
+  margin-top: 8px;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 800px) {
+  .navigation__link-signup {
+    margin-right: 14px;
+    margin-top: 3px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navigation__link-signup {
+    font-size: 10px;
+  }
+}
+
+.navigation__link-signin {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 8px 20px;
+  background: #2be080;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 500px) {
+  .navigation__link-signin {
+    font-size: 10px;
+    padding: 8px 13px;
+  }
+}
+
+.navigation__link-movies {
+  text-decoration: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  /* identical to box height, or 138% */
+
+  text-align: right;
+
+  color: #000000;
+}
+
+.navigation__link-profile {
+  margin-right: 20px;
+  margin-left: auto;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration: none;
+  color: #000000;
+}
+
+.hamburger {
+  display: none;
+  border: none;
+  background-color: white;
+  margin: 0;
+  position: relative;
+  width: 29px;
+  height: 25px;
+  border-top: 5px solid #000000;
+  border-bottom: 5px solid #000000;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .hamburger {
+    display: block;
+  }
+}
+
+.hamburger:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  width: 100%;
+  border-top: 5px solid #000000;
+}

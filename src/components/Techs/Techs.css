@@ -6,13 +6,13 @@
 
 @media screen and (max-width: 768px) {
   .about-techs {
-    padding: 92px 50px;
+    padding: 92px 40px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .about-techs {
-    padding: 111px 17px;
+    padding: 111px 9px;
     padding-bottom: 2px;
   }
 }
@@ -111,7 +111,6 @@
   .about-techs__list-technology {
     gap: 8px;
     padding: 50px 49px;
-    justify-content: center;
   }
 }
 

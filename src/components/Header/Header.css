@@ -9,17 +9,19 @@
 
 @media screen and (max-width: 800px) {
   .header {
-    padding-left: 35px;
-    padding-right: 45px;
+    padding-left: 22px;
+    padding-right: 22px;
     align-items: center;
+    padding-top: 17px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .header {
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 8px;
+    padding-right: 2px;
     padding-bottom: 10px;
+    padding-top: 17px;
   }
 }
 

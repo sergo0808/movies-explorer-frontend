@@ -18,8 +18,8 @@
 @media screen and (max-width: 768px) {
   .promo {
     min-height: 834px;
-    padding-top: 345px;
-    padding-bottom: 44px;
+    padding-top: 350px;
+    padding-bottom: 39px;
     justify-content: space-between;
   }
 }
@@ -39,10 +39,17 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
   .promo__container {
     padding-left: 13px;
-    padding-right: 15px;
+    padding-right: 13px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .promo__container {
+    padding-left: 4px;
+    padding-right: 7px;
   }
 }
 

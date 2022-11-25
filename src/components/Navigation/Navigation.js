@@ -27,9 +27,10 @@ function Navigation({ openNavBar }) {
             Аккаунт
           </Link>
         </nav>
+        <button className="hamburger" onClick={openNavBar}></button>
       </Route>
       <Route path="/saved-movies">
-        <nav className="navigation__info">
+        <nav className="navigation__info-auth">
           <Link className="navigation__link-movies" to="/movies">
             Фильмы
           </Link>
@@ -40,11 +41,12 @@ function Navigation({ openNavBar }) {
             Аккаунт
           </Link>
         </nav>
+        <button className="hamburger" onClick={openNavBar}></button>
       </Route>
       <Route path="/signup"></Route>
       <Route path="/signup"></Route>
       <Route path="/profile">
-        <nav className="navigation__info">
+        <nav className="navigation__info-auth">
           <Link className="navigation__link-movies" to="/movies">
             Фильмы
           </Link>
@@ -55,8 +57,8 @@ function Navigation({ openNavBar }) {
             Аккаунт
           </Link>
         </nav>
+        <button className="hamburger" onClick={openNavBar}></button>
       </Route>
-      <button className="hamburger" onClick={openNavBar}></button>
     </div>
   );
 }

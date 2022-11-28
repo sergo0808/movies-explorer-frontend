@@ -168,6 +168,11 @@
   font-size: 14px;
   line-height: 17px;
   margin-bottom: 102px;
+  color: #000000;
+}
+
+.about-me__link-github:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 768px) {
@@ -214,6 +219,10 @@
   line-height: 50px;
   letter-spacing: -0.04em;
   color: #000000;
+}
+
+.about-me__list-link:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 768px) {

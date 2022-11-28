@@ -1,10 +1,9 @@
-import React from 'react';
+import React from "react";
 // import MoviesCard from '../MoviesCard/MoviesCard';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import SearchForm from '../SearchForm/SearchForm';
+import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import SearchForm from "../SearchForm/SearchForm";
 
-import './SavedMovies.css'
-
+import "./SavedMovies.css";
 
 function SavedMovies() {
   return (
@@ -13,8 +12,7 @@ function SavedMovies() {
       <MoviesCardList />
       {/* <MoviesCard /> */}
     </main>
-
-  )
+  );
 }
 
 export default SavedMovies;

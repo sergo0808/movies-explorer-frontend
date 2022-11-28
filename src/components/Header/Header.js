@@ -6,7 +6,9 @@ import "./Header.css";
 function Header({ openNavBar }) {
   return (
     <div className="header">
-      <img className="header__logo" src={headerLogo} alt="Логотип" />
+      <a href="/">
+        <img className="header__logo" src={headerLogo} alt="Логотип" />
+      </a>
       <Navigation openNavBar={openNavBar} />
     </div>
   );

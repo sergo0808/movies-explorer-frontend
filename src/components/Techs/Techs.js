@@ -1,14 +1,15 @@
 import React from "react";
-import './Techs.css'
-
+import "./Techs.css";
 
 function Techs() {
   return (
-    <section className="about-techs">
+    <section className="about-techs" id="about">
       <h2 className="about-project__title">Технологии</h2>
       <div className="about-techs__container">
         <h3 className="about-techs__subtitle">7 технологий</h3>
-        <p className="about-techs__text">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
+        <p className="about-techs__text">
+          На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.
+        </p>
         <ul className="about-techs__list-technology">
           <li className="list-technology__element">HTML</li>
           <li className="list-technology__element">CSS</li>
@@ -19,7 +20,6 @@ function Techs() {
           <li className="list-technology__element">mongoDB</li>
         </ul>
       </div>
-
     </section>
   );
 }

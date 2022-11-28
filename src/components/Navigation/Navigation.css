@@ -56,6 +56,10 @@
   text-decoration: none;
 }
 
+.navigation__link-signup:hover {
+  opacity: 0.6;
+}
+
 @media screen and (max-width: 800px) {
   .navigation__link-signup {
     margin-right: 14px;
@@ -80,6 +84,10 @@
   background: #2be080;
   border-radius: 3px;
   text-decoration: none;
+}
+
+.navigation__link-signin:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 500px) {

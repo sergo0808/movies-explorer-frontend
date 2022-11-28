@@ -5,8 +5,10 @@ import formLogo from "./../../image/logo.svg";
 function Login() {
   return (
     <section className="login">
-      <form className="login__form" >
-        <img className="form__logo" src={formLogo} alt="Логотип" />
+      <form className="login__form">
+        <a href="/">
+          <img className="form__logo" src={formLogo} alt="Логотип" />
+        </a>
         <h2 className="form__title">Рады видеть!</h2>
         <label className="form__input-label">E-mail</label>
         <input
@@ -38,7 +40,7 @@ function Login() {
         </button>
         <p className="form__link-text">
           Ещё не зарегистрированы?
-          <Link to="signin" className="form__link  ">
+          <Link to="signup" className="form__link  ">
             Регистрация
           </Link>
         </p>

@@ -2,14 +2,14 @@ import "./MoviesCard.css";
 import { useState } from "react";
 
 function MoviesCard() {
-  const [isLiked, setIsLiked] = useState(false);
-  const cardLikeButtonClassName = `movies-card__saved ${isLiked && "movies-card__saved_active "}`;
+  const [isSaved, setIsSaved] = useState(false);
+  const cardSavedButtonClassName = `movies-card__saved ${isSaved && "movies-card__saved_active "}`;
 
-  function handleLikeClick() {
-    if (!isLiked) {
-      setIsLiked(true);
+  function handleSaveClick() {
+    if (!isSaved) {
+      setIsSaved(true);
     } else {
-      setIsLiked(false);
+      setIsSaved(false);
     }
   }
 
@@ -22,7 +22,7 @@ function MoviesCard() {
         alt="картинка фильма"
         src="https://bipbap.ru/wp-content/uploads/2017/04/0_7c779_5df17311_orig.jpg"
       />
-      <button className={cardLikeButtonClassName} onClick={handleLikeClick}></button>
+      <button className={cardSavedButtonClassName} onClick={handleSaveClick}></button>
     </article>
   );
 }

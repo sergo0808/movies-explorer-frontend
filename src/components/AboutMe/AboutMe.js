@@ -24,7 +24,7 @@ function AboutMe() {
 
         <ul className="about-me__list-links">
           <li className="list-links__container">
-            <a className="about-me__list-link" href="https://github.com/sergo0808/how-to-learn/">
+            <a className="about-me__list-link" href="https://sergo0808.github.io/how-to-learn/">
               Статичный сайт
             </a>
             <img className="list-links__img" src={arrow} alt="Картинка стрелка" />

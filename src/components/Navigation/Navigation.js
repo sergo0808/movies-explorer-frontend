@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Route } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 import "./Navigation.css";
 
 function Navigation({ openNavBar }) {
@@ -7,39 +7,63 @@ function Navigation({ openNavBar }) {
     <div className="navigation">
       <Route exact path="/">
         <nav className="navigation__info">
-          <Link className="navigation__link-signup" to="signup">
+          <NavLink
+            className="navigation__link-signup"
+            to="signup"
+            activeClassName="navigation__ink_active">
             Регистрация
-          </Link>
-          <Link className="navigation__link-signin" to="signin">
+          </NavLink>
+          <NavLink
+            className="navigation__link-signin"
+            to="signin"
+            activeClassName="navigation__ink_active">
             Войти
-          </Link>
+          </NavLink>
         </nav>
       </Route>
       <Route path="/movies">
         <nav className="navigation__info-auth">
-          <Link className="navigation__link-movies" to="/movies">
+          <NavLink
+            className="navigation__link-movies"
+            to="/movies"
+            activeClassName="navigation__ink_active">
             Фильмы
-          </Link>
-          <Link className="navigation__link-movies" to="/saved-movies">
+          </NavLink>
+          <NavLink
+            className="navigation__link-movies"
+            to="/saved-movies"
+            activeClassName="navigation__ink_active">
             Сохранённые фильмы
-          </Link>
-          <Link className="navigation__link-profile" to="/profile">
+          </NavLink>
+          <NavLink
+            className="navigation__link-profile"
+            to="/profile"
+            activeClassName="navigation__ink_active">
             Аккаунт
-          </Link>
+          </NavLink>
         </nav>
         <button className="hamburger" onClick={openNavBar}></button>
       </Route>
       <Route path="/saved-movies">
         <nav className="navigation__info-auth">
-          <Link className="navigation__link-movies" to="/movies">
+          <NavLink
+            className="navigation__link-movies"
+            to="/movies"
+            activeClassName="navigation__ink_active">
             Фильмы
-          </Link>
-          <Link className="navigation__link-movies" to="/saved-movies">
+          </NavLink>
+          <NavLink
+            className="navigation__link-movies"
+            to="/saved-movies"
+            activeClassName="navigation__ink_active">
             Сохранённые фильмы
-          </Link>
-          <Link className="navigation__link-profile" to="/profile">
+          </NavLink>
+          <NavLink
+            className="navigation__link-profile"
+            to="/profile"
+            activeClassName="navigation__ink_active">
             Аккаунт
-          </Link>
+          </NavLink>
         </nav>
         <button className="hamburger" onClick={openNavBar}></button>
       </Route>
@@ -47,15 +71,24 @@ function Navigation({ openNavBar }) {
       <Route path="/signup"></Route>
       <Route path="/profile">
         <nav className="navigation__info-auth">
-          <Link className="navigation__link-movies" to="/movies">
+          <NavLink
+            className="navigation__link-movies"
+            to="/movies"
+            activeClassName="navigation__ink_active">
             Фильмы
-          </Link>
-          <Link className="navigation__link-movies" to="/saved-movies">
+          </NavLink>
+          <NavLink
+            className="navigation__link-movies"
+            to="/saved-movies"
+            activeClassName="navigation__ink_active">
             Сохранённые фильмы
-          </Link>
-          <Link className="navigation__link-profile" to="/profile">
+          </NavLink>
+          <NavLink
+            className="navigation__link-profile"
+            to="/profile"
+            activeClassName="navigation__ink_active">
             Аккаунт
-          </Link>
+          </NavLink>
         </nav>
         <button className="hamburger" onClick={openNavBar}></button>
       </Route>

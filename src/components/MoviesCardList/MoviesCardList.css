@@ -30,19 +30,19 @@
 
 @media screen and (max-width: 768px) {
   .movies__card-list__container {
-    row-gap: 22px;
+    row-gap: 37px;
     column-gap: 30px;
-    margin-bottom: 36px;
+    margin-bottom: 51px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .movies__card-list__container {
-    row-gap: 2px;
+    row-gap: 18px;
   }
 }
 
-.movies__btn-close {
+.movies__btn-add {
   width: 320px;
   height: 36px;
   text-align: center;
@@ -54,10 +54,15 @@
   font-size: 12px;
   line-height: 15px;
   border-radius: 7px;
+  cursor: pointer;
+}
+
+.movies__btn-add:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 500px) {
-  .movies__btn-close {
+  .movies__btn-add {
     width: 242px;
   }
 }

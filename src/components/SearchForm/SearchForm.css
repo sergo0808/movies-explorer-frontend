@@ -103,7 +103,10 @@
   line-height: 20px;
   border: none;
   background: #f9f9f9;
-  outline: none;
+}
+
+.search-form__input:focus {
+  outline-color: #2be080;
 }
 
 @media screen and (max-width: 500px) {
@@ -123,6 +126,11 @@
   height: 34px;
   width: 34px;
   border: none;
+}
+
+.search-form__find:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {

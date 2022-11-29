@@ -5,12 +5,12 @@ import "./Header.css";
 
 function Header({ openNavBar }) {
   return (
-    <div className="header">
+    <header className="header">
       <a href="/">
         <img className="header__logo" src={headerLogo} alt="Логотип" />
       </a>
       <Navigation openNavBar={openNavBar} />
-    </div>
+    </header>
   );
 }
 

@@ -17,31 +17,45 @@ function AboutMe() {
           компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься
           фриланс-заказами и ушёл с постоянной работы.
         </p>
-        <a className="about-me__link-github" href="https://github.com/sergo0808?tab=repositories">
+        <a
+          className="about-me__link-github"
+          href="https://github.com/sergo0808?tab=repositories"
+          target="_blank"
+          rel="noreferrer">
           Github
         </a>
         <p className="about-me__portfolio-text">Портфолио</p>
 
         <ul className="about-me__list-links">
-          <li className="list-links__container">
-            <a className="about-me__list-link" href="https://sergo0808.github.io/how-to-learn/">
-              Статичный сайт
-            </a>
-            <img className="list-links__img" src={arrow} alt="Картинка стрелка" />
-          </li>
-          <li className="list-links__container">
-            <a className="about-me__list-link" href="https://sergo0808.github.io/russian-travel/">
-              Адаптивный сайт
-            </a>
-            <img className="list-links__img" src={arrow} alt="Картинка стрелка" />
-          </li>
-          <li className="list-links__container">
+          <li>
             <a
-              className="about-me__list-link"
-              href="https://mesto.frontend.sovickiy.nomoredomains.sbs/">
-              Одностраничное приложение
+              className="list-links__container"
+              href="https://sergo0808.github.io/how-to-learn/"
+              target="_blank"
+              rel="noreferrer">
+              Статичный сайт
+              <img className="list-links__img" src={arrow} alt="Картинка стрелка" />
             </a>
-            <img className="list-links__img" src={arrow} alt="Картинка стрелка" />
+          </li>
+          <li>
+            <a
+              className="list-links__container"
+              href="https://sergo0808.github.io/russian-travel/"
+              target="_blank"
+              rel="noreferrer">
+              Адаптивный сайт
+              <img className="list-links__img" src={arrow} alt="Картинка стрелка" />
+            </a>
+          </li>
+          <li>
+            <a
+              className="list-links__container"
+              href="https://mesto.frontend.sovickiy.nomoredomains.sbs/"
+              target="_blank"
+              rel="noreferrer">
+              Одностраничное приложение
+              <img className="list-links__img" src={arrow} alt="Картинка стрелка" />
+            </a>
           </li>
         </ul>
       </div>

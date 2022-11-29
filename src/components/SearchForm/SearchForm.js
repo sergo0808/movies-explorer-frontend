@@ -8,7 +8,7 @@ function SearchForm() {
       <form className="search__form">
         <div className="form__group-find">
           <img className="search-form__lupa" src={lupa} alt="картинка лупа" />
-          <input className="search-form__input" type="text" placeholder="Фильм"></input>
+          <input className="search-form__input" type="text" placeholder="Фильм" required></input>
           <button className="search-form__find"></button>
         </div>
         <div className="form__group-checkbox">

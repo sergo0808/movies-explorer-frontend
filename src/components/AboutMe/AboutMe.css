@@ -210,17 +210,6 @@
   margin: 0;
 }
 
-.about-me__list-link {
-  text-decoration: none;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 30px;
-  line-height: 50px;
-  letter-spacing: -0.04em;
-  color: #000000;
-}
-
 .about-me__list-link:hover {
   opacity: 0.6;
 }
@@ -244,6 +233,31 @@
   padding-bottom: 19px;
   border-bottom: 1px solid #e8e8e8;
   margin-bottom: 20px;
+  text-decoration: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: -0.04em;
+  color: #000000;
+}
+
+.list-links__container:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+  .list-links__container {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .list-links__container {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 
 .list-links__img {

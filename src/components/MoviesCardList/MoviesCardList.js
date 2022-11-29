@@ -10,8 +10,11 @@ function MoviesCardList() {
         <MoviesCard />
         <MoviesCard />
         <MoviesCard />
+        <MoviesCard />
+        <MoviesCard />
+        <MoviesCard />
       </div>
-      <button className="movies__btn-close">Ещё</button>
+      <button className="movies__btn-add">Ещё</button>
     </section>
   );
 }

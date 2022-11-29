@@ -20,23 +20,19 @@
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 110px;
+  gap: 40px;
 }
 
 @media screen and (max-width: 768px) {
   .about-project__text {
     padding-bottom: 94px;
-    gap: 37px;
+    column-gap: 37px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .about-project__text {
     gap: 0px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .about-project__text {
     flex-direction: column;
     padding-bottom: 60px;
   }

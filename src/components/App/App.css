@@ -1,0 +1,17 @@
+.App {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1280px;
+  background-color: #ffffff;
+  color: #000000;
+  min-height: 100vh;
+  font-family: "Inter", Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,140 @@
+.about-techs {
+  padding: 102px 70px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+  .about-techs {
+    padding: 92px 40px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-techs {
+    padding: 111px 9px;
+    padding-bottom: 2px;
+  }
+}
+
+.about-techs__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 91px;
+}
+
+@media screen and (max-width: 768px) {
+  .about-techs__container {
+    padding-top: 80px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-techs__container {
+    padding-top: 60px;
+  }
+}
+
+.about-techs__title {
+  margin: 0;
+}
+
+.about-techs__subtitle {
+  margin: 0;
+  margin-bottom: 25px;
+  max-width: 600px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  text-align: center;
+  letter-spacing: -0.04em;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: 500px) {
+  .about-techs__subtitle {
+    font-size: 30px;
+    line-height: 36px;
+    max-width: 292px;
+  }
+}
+
+.about-techs__text {
+  margin: 0;
+  max-width: 460px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 768px) {
+  .about-techs__text {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-techs__text {
+    max-width: 292px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+}
+
+.about-techs__list-technology {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 100px;
+  padding-left: 0;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+@media screen and (max-width: 768px) {
+  .about-techs__list-technology {
+    gap: 5px;
+    padding-top: 81px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-techs__list-technology {
+    gap: 8px;
+    padding: 50px 49px;
+  }
+}
+
+.list-technology__element {
+  margin: 0;
+  padding-top: 21px;
+  padding-bottom: 22px;
+  width: 90px;
+  box-sizing: border-box;
+  background-color: #e8e8e8;
+  border-radius: 10px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: -0.04em;
+}
+
+@media screen and (max-width: 768px) {
+  .list-technology__element {
+    font-size: 12px;
+    line-height: 15px;
+    width: 89px;
+  }
+}

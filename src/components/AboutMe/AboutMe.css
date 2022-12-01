@@ -1,0 +1,274 @@
+.about-me {
+  padding: 110px 70px;
+  padding-bottom: 85px;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 768px) {
+  .about-me {
+    padding: 89px 41px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-me {
+    padding: 89px 5px;
+  }
+}
+
+.about-me__container {
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+@media screen and (max-width: 500px) {
+  .about-me__container {
+    padding-top: 60px;
+  }
+}
+
+.about-me__title {
+  margin: 0;
+  padding-bottom: 21px;
+  border-bottom: 1px solid black;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+  color: #000000;
+}
+
+@media screen and (max-width: 768px) {
+  .about-me__title {
+    font-size: 22px;
+    line-height: 22px;
+    padding-bottom: 26px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-me__title {
+    padding-bottom: 28px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+.about-me__subtitle {
+  margin: 0;
+  max-width: 599px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .about-me__subtitle {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-me__subtitle {
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 20px;
+  }
+}
+
+.about-me__spicialist {
+  margin: 0;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  margin-bottom: 25px;
+}
+
+@media screen and (max-width: 768px) {
+  .about-me__spicialist {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 17px;
+  }
+}
+
+.about-me__text {
+  margin: 0;
+  max-width: 600px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  margin-bottom: 99px;
+}
+
+@media screen and (max-width: 1100px) {
+  .about-me__text {
+    font-size: 12px;
+    line-height: 18px;
+    max-width: 363px;
+    margin-bottom: 88px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-me__text {
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 42px;
+  }
+}
+
+.about-me__image-me {
+  position: absolute;
+  top: 66px;
+  right: 0px;
+  border-radius: 10px;
+  height: 327px;
+  width: 271px;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: drop-shadow(16px 16px 20px #2be080);
+}
+
+@media screen and (max-width: 1100px) {
+  .about-me__image-me {
+    height: 307px;
+    width: 255px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .about-me__image-me {
+    height: 352px;
+    width: 292px;
+    position: static;
+    margin-bottom: 40px;
+    align-self: center;
+  }
+}
+
+.about-me__link-github {
+  text-decoration: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 102px;
+  color: #000000;
+}
+
+.about-me__link-github:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 768px) {
+  .about-me__link-github {
+    margin-bottom: 90px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-me__link-github {
+    margin-bottom: 69px;
+  }
+}
+
+.about-me__portfolio-text {
+  margin: 0;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  margin-bottom: 49px;
+}
+
+@media screen and (max-width: 500px) {
+  .about-me__portfolio-text {
+    font-size: 14px;
+    margin-bottom: 42px;
+  }
+}
+
+.about-me__list-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.about-me__list-link:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 768px) {
+  .about-me__list-link {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .about-me__list-link {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+.list-links__container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 19px;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 20px;
+  text-decoration: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: -0.04em;
+  color: #000000;
+}
+
+.list-links__container:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+  .list-links__container {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .list-links__container {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+.list-links__img {
+  margin-right: 6px;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 500px) {
+  .list-links__img {
+    margin-top: 6px;
+    width: 10px;
+    height: 10px;
+  }
+}

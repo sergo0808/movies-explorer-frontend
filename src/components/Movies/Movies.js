@@ -4,11 +4,11 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
 import "./Movies.css";
 
-function Movies() {
+function Movies({ cards, onFindCard, onAddMovies }) {
   return (
     <main>
-      <SearchForm />
-      <MoviesCardList />
+      <SearchForm onFindCard={onFindCard} onAddMovies={onAddMovies} />
+      <MoviesCardList cards={cards} />
     </main>
   );
 }

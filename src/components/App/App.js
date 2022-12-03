@@ -12,9 +12,26 @@ import NavBar from "../NavBar/NavBar";
 import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import PageNotFound from "../PageNotFound/PageNotFound";
+import api from "../../utils/MoviesApi";
+import mainApi from "../../utils/MainApi";
 
 function App() {
   const [isNavBarOpen, setIsNavBarOpen] = useState(false);
+  const [cards, setCards] = useState([]);
+
+  api
+    .getMovies()
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((err) => console.log(err));
+
+  function handleAddMovies(input) {
+    mainApi.addCardApi(input).then((input) => {
+      console.log(input);
+      setCards(input, ...cards);
+    });
+  }
 
   const openNavBar = () => {
     setIsNavBarOpen(true);
@@ -34,7 +51,7 @@ function App() {
         </Route>
         <Route path="/movies">
           <Header openNavBar={openNavBar} />
-          <Movies />
+          <Movies cards={cards} onAddMovies={handleAddMovies} />
           <Footer />
         </Route>
         <Route path="/saved-movies">

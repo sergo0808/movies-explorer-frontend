@@ -2,7 +2,6 @@ import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 
 function NavBar({ isOpen, onClose }) {
-  console.log(isOpen);
   return (
     <nav className={`nav-bar ${isOpen && "nav-bar_opened"}`}>
       <div className="nav-bar__container">

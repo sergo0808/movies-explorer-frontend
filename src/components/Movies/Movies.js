@@ -1,15 +1,78 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import "./Movies.css";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import Preloader from "../Preloader/Preloader";
 
-import "./Movies.css";
+function Movies({
+  onSearch,
+  isLoading,
+  cards,
+  getSavedMovies,
+  savedMovies,
+  renderedFoundCards,
+  amountRenderedCards,
+  setResStatus,
+  resStatus,
+  isVisibleButton,
+  onLike,
+  setIsLoading,
+  onRenderCard,
+}) {
+  const foundCardsLocalStorage = JSON.parse(localStorage.getItem("foundCards"));
+  const textLocalStorage = localStorage.getItem("textSearch");
 
-function Movies({ cards, onFindCard, onAddMovies }) {
+  function isCheckedLocalStorage() {
+    if (localStorage.getItem("isChecked")) {
+      return JSON.parse(localStorage.getItem("isChecked"));
+    }
+    return false;
+  }
+
+  const [textSearch, setTextSearch] = useState(textLocalStorage || "");
+  const [isChecked, setIsChecked] = useState(isCheckedLocalStorage());
+
+  function handleTextSearch(text) {
+    setTextSearch(text);
+  }
+
+  function handleChecked(isChecked) {
+    setIsChecked(isChecked);
+  }
+
+  useEffect(() => {
+    if (foundCardsLocalStorage) {
+      renderedFoundCards(foundCardsLocalStorage);
+      getSavedMovies();
+    }
+    setIsLoading();
+  }, [amountRenderedCards]);
+
   return (
-    <main>
-      <SearchForm onFindCard={onFindCard} onAddMovies={onAddMovies} />
-      <MoviesCardList cards={cards} />
-    </main>
+    <>
+      <SearchForm
+        onSearch={onSearch}
+        textSearch={textSearch}
+        handleTextSearch={handleTextSearch}
+        isChecked={isChecked}
+        onChecked={handleChecked}
+      />
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <MoviesCardList
+          cards={cards}
+          image={cards.image}
+          savedMovies={savedMovies}
+          setResStatus={setResStatus}
+          resStatus={resStatus}
+          isVisibleButton={isVisibleButton}
+          textSearch={textSearch}
+          onLike={onLike}
+          onRenderCard={onRenderCard}
+        />
+      )}
+    </>
   );
 }
 

@@ -1,19 +1,25 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import "./SearchForm.css";
 import lupa from "./../../image/lupa.svg";
-import border from "./../../image/border.svg";
+import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
-function SearchForm({ onAddMovies }) {
-  const [movies, setMovies] = useState("");
-
-  function handleChangeMovies(event) {
-    setMovies(event.target.value);
+function SearchForm({ onSearch, textSearch, handleTextSearch, isChecked, onChecked }) {
+  function handleChange(evt) {
+    handleTextSearch(evt.target.value);
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    onAddMovies({ movies });
+  function handleChecked(evt) {
+    onChecked(evt.target.checked);
   }
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    onSearch({ textSearch, isChecked });
+  }
+
+  useEffect(() => {
+    onSearch({ textSearch, isChecked });
+  }, [isChecked]);
 
   return (
     <section className="search">
@@ -24,18 +30,11 @@ function SearchForm({ onAddMovies }) {
             className="search-form__input"
             type="text"
             placeholder="Фильм"
-            onChange={handleChangeMovies}
-            required></input>
+            value={textSearch || ""}
+            onChange={handleChange}></input>
           <button type="submit" className="search-form__find"></button>
         </div>
-        <div className="form__group-checkbox">
-          <img className="search-form__border" src={border} alt="картинка бордер" />
-          <input type="checkbox" className="checkbox" id="box" />
-          <label htmlFor="box" className="checkbox__lable"></label>
-          <label htmlFor="box" className="checkbox__lable-text">
-            Короткометражки
-          </label>
-        </div>
+        <FilterCheckbox onChecked={handleChecked} isChecked={isChecked} />
       </form>
       <div className="serch__border"></div>
     </section>

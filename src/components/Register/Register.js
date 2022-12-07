@@ -1,64 +1,103 @@
-import { Link } from "react-router-dom";
-import "./Register.css";
-import headerLogo from "./../../image/logo.svg";
+import { useEffect } from "react";
+import Form from "../Form/Form";
+import useForm from "../../hooks/useForm";
 
-function Register() {
+function Register({ onRegistration, resStatus, isLoading }) {
+  const { values, isValid, isValidForm, handleChange, resetForm } = useForm();
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    onRegistration(values);
+  }
+
+  useEffect(() => {
+    return () => {
+      resetForm();
+    };
+  }, []);
+
+  const validTextName = !isValid.name && "Введен недопустимый символ для имени";
+  const validTextEmail = !isValid.email && "Здесь должен быть E-mail";
+  const validTextPassword = !isValid.password && "Пароль не должен быть короче 8 символов";
+
+  const classPassword = `form__input ${!isValid.password && "form__input_error"}`;
+
+  const errorTextBadRequest = resStatus === 400 && "При регистрации пользователя произошла ошибка";
+  const errorTextConflict = resStatus === 409 && "Пользователь с таким email уже существует";
+  const errorTextInternalServer = resStatus === 500 && "На сервере произошла ошибка";
+  const errorTextResponse = errorTextBadRequest || errorTextConflict || errorTextInternalServer;
+
   return (
-    <div className="register">
-      <form className="register__form">
-        <a href="/">
-          <img className="form__logo" src={headerLogo} alt="Логотип" />
-        </a>
-        <h2 className="form__title">Добро пожаловать!</h2>
-        <label className="form__input-label">Имя</label>
-        <input
-          type="text"
-          className="form__input"
-          id="name-profile"
-          name="name"
-          minLength="2"
-          maxLength="40"
-          autoComplete="on"
-          required
-        />
-        <span class="form__error-signup" id="name-error"></span>
-
-        <label className="form__input-label">Email</label>
-        <input
-          type="Email"
-          className="form__input form__input_green"
-          id="email-profile"
-          name="email"
-          minLength="2"
-          maxLength="40"
-          autoComplete="on"
-          required
-        />
-        <span class="form__error-signup" id="email-error"></span>
-
-        <label className="form__input-label">Пароль</label>
-        <input
-          type="password"
-          className="form__input form__input_password_active"
-          id="password-profile"
-          name="password"
-          autoComplete="on"
-          minLength="2"
-          maxLength="200"
-          required
-        />
-        <span class="form__error-signup" id="password-error"></span>
-        <button type="submit" className="form__submit">
-          Зарегистрироваться
-        </button>
-        <p className="form__link-signup-text">
-          Уже зарегистрированы?
-          <Link to="signin" className="form__link  ">
-            Войти
-          </Link>
-        </p>
-      </form>
-    </div>
+    <section className="register">
+      <Form
+        title="Добро пожаловать!"
+        textButton="Зарегистрироваться"
+        text="Уже зарегистрированы?"
+        textLink="Войти"
+        link="/signin"
+        onSubmit={handleSubmit}
+        textError={errorTextResponse}
+        isValidForm={isValidForm}
+        isLoading={isLoading}
+        children={
+          <>
+            <label htmlFor="name" className="form__input-label">
+              Имя
+            </label>
+            <input
+              className="form__input"
+              type="text"
+              id="name"
+              name="name"
+              value={values.name || ""}
+              pattern="[a-zA-Zа-яёА-Я0-9\s\-]*"
+              required
+              placeholder="Имя"
+              onChange={handleChange}
+              disabled={!isLoading}
+            />
+            <span id="name-error" className="form__error">
+              {validTextName}
+            </span>
+            <label htmlFor="email" className="form__input-label">
+              E-mail
+            </label>
+            <input
+              className="form__input"
+              type="email"
+              id="email"
+              name="email"
+              value={values.email || ""}
+              required
+              placeholder="Email"
+              onChange={handleChange}
+              disabled={!isLoading}
+            />
+            <span id="email-error" className="form__error">
+              {validTextEmail}
+            </span>
+            <label htmlFor="password" className="form__input-label">
+              Пароль
+            </label>
+            <input
+              className={classPassword}
+              type="password"
+              id="password"
+              name="password"
+              value={values.password || ""}
+              required
+              placeholder="Пароль"
+              minLength="8"
+              onChange={handleChange}
+              disabled={!isLoading}
+            />
+            <span id="password-error" className="form__error">
+              {validTextPassword}
+            </span>
+          </>
+        }
+      />
+    </section>
   );
 }
 

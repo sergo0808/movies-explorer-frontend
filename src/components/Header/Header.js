@@ -3,13 +3,13 @@ import headerLogo from "../../image/logo.svg";
 import Navigation from "../Navigation/Navigation";
 import "./Header.css";
 
-function Header({ openNavBar }) {
+function Header({ openNavBar, isLoggedIn }) {
   return (
     <header className="header">
       <a href="/">
         <img className="header__logo" src={headerLogo} alt="Логотип" />
       </a>
-      <Navigation openNavBar={openNavBar} />
+      <Navigation openNavBar={openNavBar} isLoggedIn={isLoggedIn} />
     </header>
   );
 }

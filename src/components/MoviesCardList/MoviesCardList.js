@@ -12,13 +12,11 @@ function MoviesCardList({
   isVisibleButton,
   onRenderCard,
   textSearch,
-  onLike,
+  onSave,
 }) {
   const textLocalStorage = localStorage.getItem("textSearch");
-
   const { pathname } = useLocation();
   const textSearchFronPath = pathname === "/movies" ? textLocalStorage : textSearch;
-
   const errorText =
     resStatus === 500 &&
     "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз";
@@ -28,12 +26,10 @@ function MoviesCardList({
     (pathname === "/movies" ? "Введите ключевое слово" : "Сохраненных фильмов нет");
 
   const notFoundText = cards.length === 0 && "Ничего не найдено";
-
   const text = errorText || enterWordText || notFoundText;
-
-  function isLiked(card) {
+  const isLiked = (card) => {
     return savedMovies.some((i) => i.movieId === card.id);
-  }
+  };
 
   useEffect(() => {
     return () => {
@@ -47,9 +43,9 @@ function MoviesCardList({
         <>
           <section className="movies__card-list">
             <div className="movies__card-list__container">
-              {cards.map((card) => (
+              {cards.map((card, i) => (
                 <MoviesCard
-                  key={card.id}
+                  key={i}
                   img={
                     pathname === "/movies"
                       ? `https://api.nomoreparties.co/${card.image.url}`
@@ -57,7 +53,7 @@ function MoviesCardList({
                   }
                   name={card.nameRU}
                   duration={`${Math.floor(card.duration / 60)}ч ${card.duration % 60}м`}
-                  onLike={onLike}
+                  onSave={onSave}
                   card={card}
                   like={isLiked(card)}
                   trailerLink={card.trailerLink}

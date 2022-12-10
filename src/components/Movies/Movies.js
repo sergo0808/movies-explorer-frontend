@@ -15,35 +15,39 @@ function Movies({
   setResStatus,
   resStatus,
   isVisibleButton,
-  onLike,
+  onSave,
   setIsLoading,
   onRenderCard,
+  isLoggedIn,
 }) {
   const foundCardsLocalStorage = JSON.parse(localStorage.getItem("foundCards"));
   const textLocalStorage = localStorage.getItem("textSearch");
 
-  function isCheckedLocalStorage() {
+  const isCheckedLocalStorage = () => {
     if (localStorage.getItem("isChecked")) {
       return JSON.parse(localStorage.getItem("isChecked"));
     }
     return false;
-  }
+  };
 
   const [textSearch, setTextSearch] = useState(textLocalStorage || "");
   const [isChecked, setIsChecked] = useState(isCheckedLocalStorage());
 
-  function handleTextSearch(text) {
+  const handleTextSearch = (text) => {
     setTextSearch(text);
-  }
+  };
 
-  function handleChecked(isChecked) {
+  const handleChecked = (isChecked) => {
     setIsChecked(isChecked);
-  }
+  };
+
+  useEffect(() => {
+    getSavedMovies();
+  }, [isLoggedIn]);
 
   useEffect(() => {
     if (foundCardsLocalStorage) {
       renderedFoundCards(foundCardsLocalStorage);
-      getSavedMovies();
     }
     setIsLoading();
   }, [amountRenderedCards]);
@@ -68,7 +72,7 @@ function Movies({
           resStatus={resStatus}
           isVisibleButton={isVisibleButton}
           textSearch={textSearch}
-          onLike={onLike}
+          onSave={onSave}
           onRenderCard={onRenderCard}
         />
       )}

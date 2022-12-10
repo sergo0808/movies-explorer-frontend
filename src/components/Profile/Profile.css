@@ -140,7 +140,7 @@
   margin: 10px 0 0;
 }
 
-.profile__text-response {
+.profile__text {
   min-height: 12px;
   margin: 309px 0 0;
   color: #ff3055;
@@ -188,7 +188,7 @@
   min-height: 45px;
   padding: 0;
   border: none;
-  background-color: #3456f3;
+  background-color: #22aa62;
   border-radius: 3px;
   margin: 342px 0 0;
   color: white;
@@ -245,7 +245,7 @@
     margin: 84px 0 10px;
   }
 
-  .profile__text-response {
+  .profile__text {
     align-self: center;
     margin: 140px 0 0;
   }
@@ -267,7 +267,7 @@
     margin: 84px 0 10px;
   }
 
-  .profile__text-response {
+  .profile__text {
     align-self: center;
     margin: 150px 0 0;
   }

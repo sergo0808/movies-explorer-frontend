@@ -1,21 +1,13 @@
 import "./MoviesCard.css";
-import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
-function MoviesCard({ img, name, duration, like, trailerLink, onLike, card }) {
+function MoviesCard({ img, name, duration, like, trailerLink, onSave, card }) {
   const location = useLocation();
-  const [isSaved, setIsLiked] = useState(false);
-  const cardSavedButtonClassName = `movies-card__saved ${isSaved && "movies-card__saved_active "}`;
+  const cardSavedButtonClassName = `movies-card__saved ${like && "movies-card__saved_active "}`;
 
-  function handleCardLike() {
-    if (!isSaved) {
-      setIsLiked(true);
-      onLike(card);
-    } else {
-      setIsLiked(false);
-      onLike(card);
-    }
-  }
+  const handleCardLike = () => {
+    onSave(card);
+  };
 
   return (
     <article className="movies-card">

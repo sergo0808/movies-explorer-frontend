@@ -3,30 +3,27 @@ import "./Profile.css";
 import { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import useForm from "../../hooks/useForm";
+import useForm from "../Form/useForm";
 
 function Profile({ logout, resStatus, setResStatus, onEditProfile }) {
   const history = useHistory();
-
   const currentUser = useContext(CurrentUserContext);
-
   const [onEdit, setOnEdit] = useState(false);
-
   const { values, setValues, isValid, isValidForm, handleChange } = useForm();
 
-  function handleEditAccount() {
+  const handleEditAccount = () => {
     setOnEdit(!onEdit);
-  }
+  };
 
-  function handleSubmit() {
+  const handleSubmit = () => {
     setOnEdit(false);
     onEditProfile(values);
-  }
+  };
 
-  function handleExitAccount() {
+  const handleExitAccount = () => {
     logout();
     history.push("/");
-  }
+  };
 
   useEffect(() => {
     setValues(currentUser);
@@ -39,15 +36,11 @@ function Profile({ logout, resStatus, setResStatus, onEditProfile }) {
   const validTextName = !isValid.name && "Введен недопустимый символ для имени";
   const validTextEmail = !isValid.email && "Здесь должен быть E-mail";
 
-  const conditionInactiveStyle =
+  const bntDisabled =
     (currentUser.name === values.name && currentUser.email === values.email) || !isValidForm;
 
-  const classButton = `profile__button-save ${
-    conditionInactiveStyle && "profile__button-save_inactive"
-  }`;
-  const classTextResponse = `profile__text-response ${
-    resStatus === 200 && "profile__text-response_green"
-  }`;
+  const classButton = `profile__button-save ${bntDisabled && "profile__button-save_inactive"}`;
+  const classTextResponse = `profile__text ${resStatus === 200 && "profile__text-response_green"}`;
 
   const successfulText = resStatus === 200 && "Данные пользователя обновлены";
   const errorTextConflict = resStatus === 409 && "Пользователь с таким email уже существует";
@@ -62,7 +55,7 @@ function Profile({ logout, resStatus, setResStatus, onEditProfile }) {
       <h2 className="profile__title">{`Привет, ${currentUser.name}!`}</h2>
       {onEdit ? (
         <>
-          <form className="profile__form">
+          <form className="profile__form" autoComplete="off">
             <span id="name-error" className="profile__text-error profile__text-error_top">
               {validTextName}
             </span>
@@ -76,7 +69,6 @@ function Profile({ logout, resStatus, setResStatus, onEditProfile }) {
                 name="name"
                 id="name"
                 value={values.name || currentUser.name || ""}
-                pattern="[a-zA-Zа-яёА-Я0-9\s\-]*"
                 required
                 onChange={handleChange}
                 placeholder="Имя"
@@ -105,12 +97,7 @@ function Profile({ logout, resStatus, setResStatus, onEditProfile }) {
               name="save"
               onClick={handleSubmit}
               className={classButton}
-              disabled={conditionInactiveStyle}>
-              {conditionInactiveStyle && (
-                <button type="button" className="profile__button-back" onClick={handleEditAccount}>
-                  ← Назад
-                </button>
-              )}
+              disabled={bntDisabled}>
               Сохранить
             </button>
           </form>

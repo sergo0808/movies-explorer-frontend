@@ -13,7 +13,10 @@ function Form({
   isValidForm,
   textError,
   isLoading,
+  errorResponse,
+  resStatus,
 }) {
+  console.log(resStatus);
   const isValid = isLoading && isValidForm;
 
   const classButton = isValid ? "form__button" : "form__button form__button_inactive";
@@ -26,7 +29,7 @@ function Form({
         </Link>
         <h2 className="form__title">{title}</h2>
         <div className="form__container-input">{children}</div>
-        <span className="form__error-response">{textError}</span>
+        <span className="form__error-response">{resStatus}</span>
         <button type="submit" name="submit" className={classButton} disabled={!isValid}>
           {textButton}
         </button>

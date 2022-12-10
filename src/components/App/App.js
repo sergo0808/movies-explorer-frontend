@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
@@ -16,25 +15,18 @@ import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
-
 import "./App.css";
 import "../Form/Form.css";
-
-import mainApi from "../../utils/MainApi";
 import moviesApi from "../../utils/MoviesApi";
-
 import filtercards from "../../utils/filtercards";
+import * as mainApi from "../../utils/MainApi";
 
 function App() {
   const token = localStorage.getItem("token");
-
   const { innerWidth } = window;
-
-  const isSmallScreen = useMediaQuery({ maxWidth: 767 });
-  const isMiddleScreen = useMediaQuery({ maxWidth: 1279 });
-
+  const isSmallScreen = useMediaQuery({ maxWidth: 700 });
+  const isMiddleScreen = useMediaQuery({ maxWidth: 1200 });
   const history = useHistory();
-
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isOpenNavBar, setIsOpenNavBar] = useState(false);
   const [resStatus, setResStatus] = useState("");
@@ -49,6 +41,56 @@ function App() {
   const [savedMovies, setSavedMovies] = useState([]);
   const [foundFromSavedMovies, setFoundFromSavedMovies] = useState([]);
 
+  const signOut = () => {
+    localStorage.clear();
+    setIsLoggedIn(false);
+    setCurrentUser({});
+    setSavedMovies([]);
+    history.push("/signin");
+  };
+
+  const onLogin = ({ email, password }) => {
+    return mainApi.authorize(email, password).then((res) => {
+      if (res.token) {
+        localStorage.setItem("token", res.token);
+        setIsLoggedIn(true);
+      }
+    });
+  };
+
+  const onRegister = ({ name, email, password }) => {
+    return mainApi
+      .register(name, email, password)
+      .then(() => {
+        setResStatus("");
+      })
+      .then(() => {
+        onLogin({ email, password });
+      })
+      .catch((err) => {
+        setResStatus(err.status);
+        setIsLoading(false);
+      });
+  };
+
+  const auth = async (token) => {
+    const content = await mainApi.getContent(token).then((data) => {
+      if (data) {
+        setIsLoggedIn(true);
+        setCurrentUser(data.data);
+      }
+    });
+    return content;
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      auth(token);
+      history.push("/movies");
+    }
+  }, [isLoggedIn]);
+
   function selectAmountDefaultCards() {
     if (isSmallScreen) {
       return 5;
@@ -59,7 +101,7 @@ function App() {
     }
   }
 
-  function selectAmountAddedCardsDepSize() {
+  const selectAmountAddedCardsDepSize = () => {
     if (isSmallScreen) {
       setAmountAddedCardsDepSize(2);
     } else if (isMiddleScreen) {
@@ -67,90 +109,35 @@ function App() {
     } else {
       setAmountAddedCardsDepSize(3);
     }
-  }
+  };
 
-  function handleRenderCards(cards) {
-    const visibleCard = cards.slice(0, amountRenderedCards);
-    setRenderedCards(visibleCard);
-  }
+  const handleRenderCards = (cards) => {
+    const sliceCard = cards.slice(0, amountRenderedCards);
+    setRenderedCards(sliceCard);
+  };
 
-  function handleAmountRenderedCards() {
+  const handleСountRenderedCards = () => {
     setAmountRenderedCards(amountRenderedCards + amountAddedCardsDepSize);
-  }
+  };
 
-  function handleVisibilityButton(cards) {
+  const handleVisibilityButton = (cards) => {
     setIsVisibleButton(cards.length > amountRenderedCards);
-  }
+  };
 
-  function setUserInfo() {
+  const setUserInfo = () => {
     mainApi
       .getUserInfo()
       .then((res) => {
         setCurrentUser(res.data);
       })
       .catch((err) => console.log(err));
-  }
+  };
 
-  function handleLoading() {
+  const handleLoading = () => {
     setIsLoading(false);
-  }
+  };
 
-  function handleLogin({ email, password }) {
-    setIsLoading(true);
-    mainApi
-      .login({ email, password })
-      .then((res) => {
-        setIsLoggedIn(true);
-        setResStatus("");
-        localStorage.setItem("token", res.token);
-        setUserInfo();
-        history.push("/movies");
-      })
-      .catch((err) => {
-        console.log(err);
-        setResStatus(err);
-        setIsLoading(false);
-      });
-  }
-
-  function handleRegistration({ name, email, password }) {
-    setIsLoading(true);
-    mainApi
-      .registration({ name, email, password })
-      .then(() => {
-        handleLogin({ email, password });
-        setResStatus("");
-      })
-      .catch((err) => {
-        console.log(err);
-        setResStatus(err);
-        setIsLoading(false);
-      });
-  }
-
-  function handleLogout() {
-    setIsLoggedIn(false);
-    localStorage.clear();
-    setSavedMovies([]);
-  }
-
-  function tokenCheck() {
-    if (token) {
-      mainApi
-        .getUserInfo()
-        .then(() => {
-          setUserInfo();
-          setIsLoggedIn(true);
-        })
-        .catch(() => {
-          setIsLoggedIn(false);
-          localStorage.clear();
-          setSavedMovies([]);
-        });
-    }
-  }
-
-  function handleChangeUserInfo({ name, email }) {
+  const handleChangeUserInfo = ({ name, email }) => {
     mainApi
       .changeUserInfo({ name, email })
       .then((res) => {
@@ -161,7 +148,7 @@ function App() {
         console.log(err);
         setResStatus(err);
       });
-  }
+  };
 
   const openNavBar = () => {
     setIsOpenNavBar(true);
@@ -171,17 +158,17 @@ function App() {
     setIsOpenNavBar(false);
   };
 
-  function handleResStatus() {
+  const handleResStatus = () => {
     setResStatus("");
-  }
+  };
 
-  function saveItemsInLocalStorage(text, isChecked, cards) {
+  const saveItemsInLocalStorage = (text, isChecked, cards) => {
     localStorage.setItem("textSearch", text);
     localStorage.setItem("isChecked", isChecked);
     localStorage.setItem("foundCards", JSON.stringify(cards));
-  }
+  };
 
-  function getMovies({ textSearch, isChecked }) {
+  const getMovies = ({ textSearch, isChecked }) => {
     const filterCards = filtercards(cards, textSearch, isChecked);
     if (cards.length === 0 && textSearch) {
       setIsLoading(true);
@@ -205,40 +192,32 @@ function App() {
     handleRenderCards(filterCards);
     saveItemsInLocalStorage(textSearch, isChecked, filterCards);
     handleVisibilityButton(filterCards);
-  }
+  };
 
-  function getSavedMovies() {
-    if (savedMovies.length === 0) {
-      setIsLoading(true);
-      mainApi
-        .getUserInfo()
-        .then((res) => {
-          mainApi
-            .getMyMovies()
-            .then((cards) => {
-              const mySaveMovies = cards.filter((i) => i.owner === res._id);
-              setSavedMovies(mySaveMovies);
-              setFoundFromSavedMovies(mySaveMovies);
-            })
-            .catch((err) => {
-              setResStatus(500);
-              console.log(err);
-            })
-            .finally(() => setIsLoading(false));
+  const getSavedMovies = () => {
+    if (isLoggedIn) {
+      Promise.all([mainApi.getUserInfo(), mainApi.getMyMovies()])
+        .then(([res, cards]) => {
+          const mySaveMovies = cards.filter((i) => i.owner === currentUser._id);
+          setSavedMovies(mySaveMovies);
+          setFoundFromSavedMovies(mySaveMovies);
         })
-        .catch((err) => console.log(err))
+        .catch((err) => {
+          setResStatus(500);
+          console.log(err);
+        })
         .finally(() => setIsLoading(false));
     }
-  }
+  };
 
-  function getFoundFromSavedMovies({ textSearch, isChecked }) {
+  const getFoundFromSavedMovies = ({ textSearch, isChecked }) => {
     const filterCards = filtercards(savedMovies, textSearch, isChecked);
     setFoundFromSavedMovies(filterCards);
-  }
+  };
 
-  function handleCardLike(card) {
-    const isLiked = savedMovies.some((i) => i.movieId === card.id);
-    if (!isLiked) {
+  const handleCardSave = (card) => {
+    const isSaved = savedMovies.some((i) => i.movieId === card.id);
+    if (!isSaved) {
       mainApi
         .saveMovie({
           country: card.country,
@@ -260,15 +239,15 @@ function App() {
     } else {
       const relevantMovie = savedMovies.find((i) => i.movieId === card.id);
       mainApi
-        .deleteMovie(relevantMovie)
-        .then((movie) => {
-          setSavedMovies(savedMovies.filter((i) => i.movieId !== movie.data.movieId));
+        .deleteMovie(relevantMovie._id)
+        .then(() => {
+          setSavedMovies(savedMovies.filter((i) => i.movieId !== relevantMovie.movieId));
         })
         .catch((err) => console.log(err));
     }
-  }
+  };
 
-  function handleCardDislike(card) {
+  const handleCardDelete = (card) => {
     mainApi
       .deleteMovie(card._id)
       .then(() => {
@@ -276,7 +255,7 @@ function App() {
         setFoundFromSavedMovies(savedMovies.filter((i) => i.movieId !== card.movieId));
       })
       .catch((err) => console.log(err));
-  }
+  };
 
   useEffect(() => {
     if (token) {
@@ -288,10 +267,6 @@ function App() {
     selectAmountAddedCardsDepSize();
     setAmountRenderedCards(selectAmountDefaultCards());
   }, [innerWidth]);
-
-  useEffect(() => {
-    tokenCheck();
-  }, [isLoggedIn]);
 
   useEffect(() => {
     handleVisibilityButton(foundCards);
@@ -307,27 +282,13 @@ function App() {
             <Footer />
           </Route>
           <ProtectedRoute
-            path="/profile"
-            isLoggedIn={token}
-            children={
-              <>
-                <Header isLoggedIn={isLoggedIn} openNavBar={openNavBar} />
-                <Profile
-                  logout={handleLogout}
-                  resStatus={resStatus}
-                  setResStatus={handleResStatus}
-                  onEditProfile={handleChangeUserInfo}
-                />
-              </>
-            }
-          />
-          <ProtectedRoute
             path="/movies"
             isLoggedIn={token}
             children={
               <>
                 <Header isLoggedIn={isLoggedIn} openNavBar={openNavBar} />
                 <Movies
+                  isLoggedIn={isLoggedIn}
                   onSearch={getMovies}
                   isLoading={isLoading}
                   cards={renderedCards}
@@ -337,10 +298,11 @@ function App() {
                   amountRenderedCards={amountRenderedCards}
                   resStatus={resStatus}
                   setIsLoading={handleLoading}
-                  onLike={handleCardLike}
+                  onSave={handleCardSave}
+                  onDelete={handleCardDelete}
                   setResStatus={handleResStatus}
                   isVisibleButton={isVisibleButton}
-                  onRenderCard={handleAmountRenderedCards}
+                  onRenderCard={handleСountRenderedCards}
                 />
                 <Footer />
               </>
@@ -358,11 +320,12 @@ function App() {
                   cards={foundFromSavedMovies}
                   savedMovies={savedMovies}
                   getSavedMovies={getSavedMovies}
-                  onDislike={handleCardDislike}
+                  onSave={handleCardSave}
+                  onDelete={handleCardDelete}
                   resStatus={resStatus}
                   setResStatus={handleResStatus}
                   filterCard
-                  onRenderCard={handleAmountRenderedCards}
+                  onRenderCard={handleСountRenderedCards}
                 />
                 <Footer />
               </>
@@ -372,18 +335,27 @@ function App() {
             path="/signup"
             isLoggedIn={!token}
             children={
-              <Register
-                onRegistration={handleRegistration}
-                resStatus={resStatus}
-                isLoading={!isLoading}
-              />
+              <Register onRegistration={onRegister} resStatus={resStatus} isLoading={!isLoading} />
             }
           />
           <ProtectedRoute
             path="/signin"
             isLoggedIn={!token}
+            children={<Login onLoggedIn={onLogin} resStatus={resStatus} isLoading={!isLoading} />}
+          />
+          <ProtectedRoute
+            path="/profile"
+            isLoggedIn={token}
             children={
-              <Login onLoggedIn={handleLogin} resStatus={resStatus} isLoading={!isLoading} />
+              <>
+                <Header isLoggedIn={isLoggedIn} openNavBar={openNavBar} />
+                <Profile
+                  logout={signOut}
+                  resStatus={resStatus}
+                  setResStatus={handleResStatus}
+                  onEditProfile={handleChangeUserInfo}
+                />
+              </>
             }
           />
           <Route path="*">

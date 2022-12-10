@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import Form from "../Form/Form";
-import useForm from "../../hooks/useForm";
+import useForm from "../Form/useForm";
 
 function Register({ onRegistration, resStatus, isLoading }) {
   const { values, isValid, isValidForm, handleChange, resetForm } = useForm();
 
-  function handleSubmit(evt) {
+  const handleSubmit = (evt) => {
     evt.preventDefault();
     onRegistration(values);
-  }
+  };
 
   useEffect(() => {
     return () => {
@@ -22,10 +22,10 @@ function Register({ onRegistration, resStatus, isLoading }) {
 
   const classPassword = `form__input ${!isValid.password && "form__input_error"}`;
 
-  const errorTextBadRequest = resStatus === 400 && "При регистрации пользователя произошла ошибка";
-  const errorTextConflict = resStatus === 409 && "Пользователь с таким email уже существует";
-  const errorTextInternalServer = resStatus === 500 && "На сервере произошла ошибка";
-  const errorTextResponse = errorTextBadRequest || errorTextConflict || errorTextInternalServer;
+  const errorBadRequest = resStatus === 400 && "При регистрации пользователя произошла ошибка";
+  const errorConflict = resStatus === 409 && "Пользователь с таким email уже существует";
+  const errorInternalServer = resStatus === 500 && "На сервере произошла ошибка";
+  const errorMessage = errorBadRequest || errorConflict || errorInternalServer;
 
   return (
     <section className="register">
@@ -36,7 +36,7 @@ function Register({ onRegistration, resStatus, isLoading }) {
         textLink="Войти"
         link="/signin"
         onSubmit={handleSubmit}
-        textError={errorTextResponse}
+        resStatus={errorMessage}
         isValidForm={isValidForm}
         isLoading={isLoading}
         children={

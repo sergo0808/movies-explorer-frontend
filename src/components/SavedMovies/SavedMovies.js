@@ -10,20 +10,20 @@ function SavedMovies({
   savedMovies,
   getSavedMovies,
   setResStatus,
-  onDislike,
+  onDelete,
   resStatus,
   onRenderCard,
 }) {
   const [textSearch, setTextSearch] = useState("");
   const [isChecked, setIsChecked] = useState(false);
 
-  function handleTextSearch(text) {
+  const handleTextSearch = (text) => {
     setTextSearch(text);
-  }
+  };
 
-  function handleChecked(isChecked) {
+  const handleChecked = (isChecked) => {
     setIsChecked(isChecked);
-  }
+  };
 
   useEffect(() => {
     getSavedMovies();
@@ -48,7 +48,7 @@ function SavedMovies({
           resStatus={resStatus}
           isVisibleButton={false}
           textSearch={textSearch}
-          onLike={onDislike}
+          onSave={onDelete}
           onRenderCard={onRenderCard}
         />
       )}

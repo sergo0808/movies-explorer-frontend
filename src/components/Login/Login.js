@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Form from "../Form/Form";
-import useForm from "../../hooks/useForm";
+import useForm from "../Form/useForm";
 
 function Login({ onLoggedIn, resStatus, isLoading }) {
   const { values, isValid, isValidForm, handleChange, resetForm } = useForm();

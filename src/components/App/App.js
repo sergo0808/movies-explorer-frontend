@@ -91,8 +91,6 @@ function App() {
     if (token) {
       auth(token);
       console.log(auth(token));
-    } else {
-      signOut();
     }
   }, [isLoggedIn]);
 

@@ -90,6 +90,7 @@ function App() {
     const token = localStorage.getItem("token");
     if (token) {
       auth(token);
+      console.log(auth(token));
     } else {
       signOut();
     }

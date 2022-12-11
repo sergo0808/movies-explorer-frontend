@@ -45,10 +45,13 @@
 
 .pagenotfound__link {
   font-weight: 400;
+  cursor: pointer;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
   color: #2be080;
+  border: none;
+  background-color: white;
   text-decoration: none;
 }
 

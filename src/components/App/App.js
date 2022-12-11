@@ -90,6 +90,8 @@ function App() {
     const token = localStorage.getItem("token");
     if (token) {
       auth(token);
+    } else {
+      signOut();
     }
   }, [isLoggedIn]);
 

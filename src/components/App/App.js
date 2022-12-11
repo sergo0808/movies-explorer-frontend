@@ -87,7 +87,6 @@ function App() {
     const token = localStorage.getItem("token");
     if (token) {
       auth(token);
-      history.push("/movies");
     }
   }, [isLoggedIn]);
 

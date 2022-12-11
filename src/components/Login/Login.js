@@ -48,6 +48,7 @@ function Login({ onLoggedIn, resStatus, isLoading }) {
               id="email"
               name="email"
               value={values.email || ""}
+              pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
               required
               placeholder="Email"
               onChange={handleChange}

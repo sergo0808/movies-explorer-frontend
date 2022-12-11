@@ -70,6 +70,7 @@ function Register({ onRegistration, resStatus, isLoading }) {
               value={values.email || ""}
               required
               placeholder="Email"
+              pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
               onChange={handleChange}
               disabled={!isLoading}
             />

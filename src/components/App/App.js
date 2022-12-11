@@ -54,6 +54,7 @@ function App() {
       if (res.token) {
         localStorage.setItem("token", res.token);
         setIsLoggedIn(true);
+        history.push("/movies");
       }
     });
   };
@@ -78,6 +79,8 @@ function App() {
       if (data) {
         setIsLoggedIn(true);
         setCurrentUser(data.data);
+      } else {
+        signOut();
       }
     });
     return content;

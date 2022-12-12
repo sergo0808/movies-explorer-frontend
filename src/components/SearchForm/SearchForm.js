@@ -17,6 +17,10 @@ function SearchForm({ onSearch, textSearch, handleTextSearch, isChecked, onCheck
     onSearch({ textSearch, isChecked });
   }
 
+  useEffect(() => {
+    onSearch({ textSearch, isChecked });
+  }, [isChecked]);
+
   return (
     <section className="search">
       <form className="search__form" onSubmit={handleSubmit}>

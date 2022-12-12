@@ -40,6 +40,7 @@ function App() {
   const [amountRenderedCards, setAmountRenderedCards] = useState(selectAmountDefaultCards());
   const [savedMovies, setSavedMovies] = useState([]);
   const [foundFromSavedMovies, setFoundFromSavedMovies] = useState([]);
+  const foundCardsLocalStorage = JSON.parse(localStorage.getItem("foundCards"));
 
   const signOut = () => {
     localStorage.clear();
@@ -183,7 +184,7 @@ function App() {
 
   const getMovies = ({ textSearch, isChecked }) => {
     const filterCards = filtercards(cards, textSearch, isChecked);
-    if (cards.length === 0 && textSearch) {
+    if (foundCardsLocalStorage.length === 0) {
       setIsLoading(true);
       moviesApi
         .getMovies()

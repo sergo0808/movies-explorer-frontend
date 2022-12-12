@@ -40,7 +40,6 @@ function App() {
   const [amountRenderedCards, setAmountRenderedCards] = useState(selectAmountDefaultCards());
   const [savedMovies, setSavedMovies] = useState([]);
   const [foundFromSavedMovies, setFoundFromSavedMovies] = useState([]);
-  const foundCardsLocalStorage = JSON.parse(localStorage.getItem("foundCards"));
 
   const signOut = () => {
     localStorage.clear();
@@ -85,9 +84,9 @@ function App() {
         }
       })
       .catch((err) => {
-        // if (err.status === 401) {
-        //   signOut();
-        // }
+        if (err.status === 401) {
+          signOut();
+        }
       });
     return content;
   };
@@ -139,9 +138,9 @@ function App() {
         setCurrentUser(res.data);
       })
       .catch((err) => {
-        // if (err.status === 401) {
-        //   signOut();
-        // }
+        if (err.status === 401) {
+          signOut();
+        }
       });
   };
 
@@ -157,9 +156,9 @@ function App() {
         setCurrentUser(res.data);
       })
       .catch((err) => {
-        // if (err.status === 401) {
-        //   signOut();
-        // }
+        if (err.status === 401) {
+          signOut();
+        }
         setResStatus(err);
       });
   };
@@ -184,8 +183,7 @@ function App() {
 
   const getMovies = ({ textSearch, isChecked }) => {
     const filterCards = filtercards(cards, textSearch, isChecked);
-    if (foundCardsLocalStorage == 0 && textSearch) {
-      console.log(foundCardsLocalStorage);
+    if (cards.length === 0) {
       setIsLoading(true);
       moviesApi
         .getMovies()
@@ -217,9 +215,9 @@ function App() {
           setFoundFromSavedMovies(mySaveMovies);
         })
         .catch((err) => {
-          // if (err.status === 401) {
-          //   signOut();
-          // }
+          if (err.status === 401) {
+            signOut();
+          }
           setResStatus(500);
           console.log(err);
         })

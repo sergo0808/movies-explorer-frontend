@@ -75,14 +75,19 @@ function App() {
   };
 
   const auth = async (token) => {
-    const content = await mainApi.getContent(token).then((data) => {
-      if (data) {
-        setIsLoggedIn(true);
-        setCurrentUser(data.data);
-      } else {
-        signOut();
-      }
-    });
+    const content = await mainApi
+      .getContent(token)
+      .then((data) => {
+        if (data) {
+          setIsLoggedIn(true);
+          setCurrentUser(data.data);
+        }
+      })
+      .catch((err) => {
+        if (err.status === 401) {
+          signOut();
+        }
+      });
     return content;
   };
 
@@ -90,7 +95,6 @@ function App() {
     const token = localStorage.getItem("token");
     if (token) {
       auth(token);
-      console.log(auth(token));
     }
   }, [isLoggedIn]);
 
@@ -133,7 +137,11 @@ function App() {
       .then((res) => {
         setCurrentUser(res.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err.status === 401) {
+          signOut();
+        }
+      });
   };
 
   const handleLoading = () => {
@@ -148,7 +156,9 @@ function App() {
         setCurrentUser(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        if (err.status === 401) {
+          signOut();
+        }
         setResStatus(err);
       });
   };
@@ -187,7 +197,6 @@ function App() {
         })
         .catch((err) => {
           setResStatus(500);
-          console.log(err);
         })
         .finally(() => setIsLoading(false));
     }
@@ -206,6 +215,9 @@ function App() {
           setFoundFromSavedMovies(mySaveMovies);
         })
         .catch((err) => {
+          if (err.status === 401) {
+            signOut();
+          }
           setResStatus(500);
           console.log(err);
         })
@@ -238,7 +250,11 @@ function App() {
         .then((newCard) => {
           setSavedMovies([...savedMovies, newCard]);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          if (err.status === 401) {
+            signOut();
+          }
+        });
     } else {
       const relevantMovie = savedMovies.find((i) => i.movieId === card.id);
       mainApi
@@ -246,7 +262,11 @@ function App() {
         .then(() => {
           setSavedMovies(savedMovies.filter((i) => i.movieId !== relevantMovie.movieId));
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          if (err.status === 401) {
+            signOut();
+          }
+        });
     }
   };
 
@@ -257,7 +277,11 @@ function App() {
         setSavedMovies(savedMovies.filter((i) => i.movieId !== card.movieId));
         setFoundFromSavedMovies(savedMovies.filter((i) => i.movieId !== card.movieId));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err.status === 401) {
+          signOut();
+        }
+      });
   };
 
   useEffect(() => {
@@ -268,11 +292,15 @@ function App() {
 
   useEffect(() => {
     selectAmountAddedCardsDepSize();
-    setAmountRenderedCards(selectAmountDefaultCards());
   }, [innerWidth]);
 
   useEffect(() => {
+    setAmountRenderedCards(selectAmountDefaultCards());
+  }, [isLoggedIn]);
+
+  useEffect(() => {
     handleVisibilityButton(foundCards);
+    selectAmountAddedCardsDepSize();
   }, [amountRenderedCards]);
 
   return (
@@ -320,6 +348,7 @@ function App() {
                 <SavedMovies
                   onSearch={getFoundFromSavedMovies}
                   isLoading={isLoading}
+                  isLoggedIn={isLoggedIn}
                   cards={foundFromSavedMovies}
                   savedMovies={savedMovies}
                   getSavedMovies={getSavedMovies}

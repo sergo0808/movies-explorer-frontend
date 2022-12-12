@@ -13,6 +13,7 @@ function SavedMovies({
   onDelete,
   resStatus,
   onRenderCard,
+  isLoggedIn,
 }) {
   const [textSearch, setTextSearch] = useState("");
   const [isChecked, setIsChecked] = useState(false);
@@ -27,7 +28,7 @@ function SavedMovies({
 
   useEffect(() => {
     getSavedMovies();
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <>

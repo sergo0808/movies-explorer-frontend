@@ -85,9 +85,9 @@ function App() {
         }
       })
       .catch((err) => {
-        if (err.status === 401) {
-          signOut();
-        }
+        // if (err.status === 401) {
+        //   signOut();
+        // }
       });
     return content;
   };
@@ -139,9 +139,9 @@ function App() {
         setCurrentUser(res.data);
       })
       .catch((err) => {
-        if (err.status === 401) {
-          signOut();
-        }
+        // if (err.status === 401) {
+        //   signOut();
+        // }
       });
   };
 
@@ -157,9 +157,9 @@ function App() {
         setCurrentUser(res.data);
       })
       .catch((err) => {
-        if (err.status === 401) {
-          signOut();
-        }
+        // if (err.status === 401) {
+        //   signOut();
+        // }
         setResStatus(err);
       });
   };
@@ -184,7 +184,8 @@ function App() {
 
   const getMovies = ({ textSearch, isChecked }) => {
     const filterCards = filtercards(cards, textSearch, isChecked);
-    if (foundCardsLocalStorage.length === 0) {
+    if (foundCardsLocalStorage == 0 && textSearch) {
+      console.log(foundCardsLocalStorage);
       setIsLoading(true);
       moviesApi
         .getMovies()
@@ -216,9 +217,9 @@ function App() {
           setFoundFromSavedMovies(mySaveMovies);
         })
         .catch((err) => {
-          if (err.status === 401) {
-            signOut();
-          }
+          // if (err.status === 401) {
+          //   signOut();
+          // }
           setResStatus(500);
           console.log(err);
         })

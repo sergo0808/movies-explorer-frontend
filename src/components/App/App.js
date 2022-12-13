@@ -40,7 +40,6 @@ function App() {
   const [amountRenderedCards, setAmountRenderedCards] = useState(selectAmountDefaultCards());
   const [savedMovies, setSavedMovies] = useState([]);
   const [foundFromSavedMovies, setFoundFromSavedMovies] = useState([]);
-  const foundCardsLocalStorage = JSON.parse(localStorage.getItem("foundCards"));
 
   const signOut = () => {
     localStorage.clear();

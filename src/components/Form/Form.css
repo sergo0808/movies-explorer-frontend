@@ -1,12 +1,4 @@
-.register {
-  margin: 0;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 500px;
-  min-height: 75vh;
-}
-
-.register__form {
+.form {
   max-width: 396px;
   display: flex;
   flex-direction: column;
@@ -22,13 +14,13 @@
 }
 
 @media screen and (max-width: 800px) {
-  .register__form {
+  .form {
     padding-top: 151px;
   }
 }
 
 @media screen and (max-width: 500px) {
-  .register__form {
+  .form {
     padding-top: 77px;
     align-items: center;
     max-width: 260px;
@@ -93,34 +85,10 @@
   }
 }
 
-.form__link-signup-text {
-  margin: 0;
-  margin-left: 89px;
-  margin-top: 16px;
-  align-self: center;
-  font-weight: 400;
-  text-decoration: none;
-  text-align: center;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: center;
-  color: #a0a0a0;
-  align-self: flex-start;
-}
-
-@media screen and (max-width: 500px) {
-  .form__link-signup-text {
-    font-size: 12px;
-    line-height: 15px;
-    margin-left: 37px;
-    margin-top: 14px;
-  }
-}
-
 .form__input {
   width: 392px;
   padding-bottom: 11px;
-  margin-bottom: 6px;
+  margin-bottom: 21px;
   border: none;
   border-bottom: 1px solid #cccccc;
   font-weight: 400;
@@ -143,11 +111,9 @@
   }
 }
 
-.form__input_green {
-  border-bottom: 1px solid #2be080;
-}
-
-.form__submit {
+.form__button {
+  margin-top: 132px;
+  margin-bottom: 14px;
   width: 395px;
   padding-top: 12px;
   padding-bottom: 16px;
@@ -163,8 +129,14 @@
   border: none;
 }
 
+.form__button_inactive {
+  background-color: #f8f8f8;
+  color: #c2c2c2;
+  cursor: auto;
+}
+
 @media screen and (max-width: 500px) {
-  .form__submit {
+  .form__button {
     max-width: 260px;
 
     font-size: 12px;
@@ -172,11 +144,11 @@
   }
 }
 
-.form__submit:hover {
+.form__button:hover {
   opacity: 0.8;
 }
 
-.form__error-signup {
+.form__error {
   margin: 0;
   margin-bottom: 5px;
   left: 38px;
@@ -190,10 +162,15 @@
   height: 12px;
 }
 
-.form__error-signup:last-of-type {
+.form__error:last-of-type {
   margin-bottom: 134px;
 }
 
-.form__error-signup_visible {
-  opacity: 1;
+.form__text {
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
 }

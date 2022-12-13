@@ -1,3 +1,16 @@
+.notText {
+  padding-top: 30px;
+  padding-right: 70px;
+  padding-left: 70px;
+  padding-bottom: 65px;
+  color: #000;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 15px;
+  margin: 0;
+  text-align: start;
+}
+
 .movies__card-list {
   display: flex;
   flex-direction: column;

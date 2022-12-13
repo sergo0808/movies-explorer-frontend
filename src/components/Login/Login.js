@@ -1,50 +1,83 @@
-import { Link } from "react-router-dom";
-import "./Login.css";
-import formLogo from "./../../image/logo.svg";
+import { useEffect } from "react";
+import Form from "../Form/Form";
+import useForm from "../Form/useForm";
 
-function Login() {
+function Login({ onLoggedIn, resStatus, isLoading }) {
+  const { values, isValid, isValidForm, handleChange, resetForm } = useForm();
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    onLoggedIn(values);
+  }
+
+  useEffect(() => {
+    return () => {
+      resetForm();
+    };
+  }, []);
+
+  const validTextEmail = !isValid.email && "Здесь должен быть E-mail";
+  const validTextPassword = !isValid.password && "Пароль должен быть не короче 8 символов";
+
+  const classPassword = `form__input ${!isValid.password && "form__input_error"}`;
+
+  const errorTextUnauthorised = resStatus === 401 && "Вы ввели неправильный логин или пароль";
+  const errorTextInternalServer = resStatus === 500 && "На сервере произошла ошибка";
+  const errorTextResponse = errorTextUnauthorised || errorTextInternalServer;
+
   return (
     <section className="login">
-      <form className="login__form">
-        <a href="/">
-          <img className="form__logo" src={formLogo} alt="Логотип" />
-        </a>
-        <h2 className="form__title">Рады видеть!</h2>
-        <label className="form__input-label">E-mail</label>
-        <input
-          type="Email"
-          className="form__input"
-          id="email-profile"
-          name="email"
-          minLength="2"
-          maxLength="40"
-          autoComplete="on"
-          required
-        />
-        <span class="form__error" id="email-error"></span>
-
-        <label className="form__input-label">Пароль</label>
-        <input
-          type="password"
-          className="form__input form__input_password_active"
-          id="password-profile"
-          name="password"
-          autoComplete="on"
-          minLength="2"
-          maxLength="200"
-          required
-        />
-        <span class="form__error" id="password-error"></span>
-        <button type="submit" className="form__submit form__submit_margin-login">
-          Войти
-        </button>
-        <p className="form__link-text">
-          Ещё не зарегистрированы?
-          <Link to="signup" className="form__link  ">
-            Регистрация
-          </Link>
-        </p>
-      </form>
+      <Form
+        title="Рады видеть!"
+        textButton="Войти"
+        text="Ещё не зарегистрированы?"
+        textLink="Регистрация"
+        link="/signup"
+        isValidForm={isValidForm}
+        textError={errorTextResponse}
+        onSubmit={handleSubmit}
+        isLoading={isLoading}
+        children={
+          <>
+            <label htmlFor="email" className="form__input-label">
+              E-mail
+            </label>
+            <input
+              className="form__input"
+              type="email"
+              id="email"
+              name="email"
+              value={values.email || ""}
+              pattern="[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+"
+              required
+              placeholder="Email"
+              onChange={handleChange}
+              disabled={!isLoading}
+            />
+            <span id="email-error" className="form__error">
+              {validTextEmail}
+            </span>
+            <label htmlFor="password" className="form__input-label">
+              Пароль
+            </label>
+            <input
+              className={classPassword}
+              type="password"
+              id="password"
+              name="password"
+              value={values.password || ""}
+              required
+              placeholder="Пароль"
+              minLength="8"
+              onChange={handleChange}
+              disabled={!isLoading}
+            />
+            <span id="password-error" className="form__error">
+              {validTextPassword}
+            </span>
+          </>
+        }
+      />
     </section>
   );
 }

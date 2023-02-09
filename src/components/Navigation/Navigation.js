@@ -13,13 +13,13 @@ function Navigation({ openNavBar, isLoggedIn }) {
                 className="navigation__link-movies"
                 to="/movies"
                 activeClassName="navigation__ink_active">
-                Фильмы
+                Медиа
               </NavLink>
               <NavLink
                 className="navigation__link-movies"
                 to="/saved-movies"
                 activeClassName="navigation__ink_active">
-                Сохранённые фильмы
+                Контент
               </NavLink>
               <NavLink
                 className="navigation__link-profile"
@@ -53,13 +53,13 @@ function Navigation({ openNavBar, isLoggedIn }) {
             className="navigation__link-movies"
             to="/movies"
             activeClassName="navigation__ink_active">
-            Фильмы
+            Медиа
           </NavLink>
           <NavLink
             className="navigation__link-movies"
             to="/saved-movies"
             activeClassName="navigation__ink_active">
-            Сохранённые фильмы
+            Контент
           </NavLink>
           <NavLink
             className="navigation__link-profile"
@@ -76,13 +76,13 @@ function Navigation({ openNavBar, isLoggedIn }) {
             className="navigation__link-movies"
             to="/movies"
             activeClassName="navigation__ink_active">
-            Фильмы
+            Медиа
           </NavLink>
           <NavLink
             className="navigation__link-movies"
             to="/saved-movies"
             activeClassName="navigation__ink_active">
-            Сохранённые фильмы
+            Контент
           </NavLink>
           <NavLink
             className="navigation__link-profile"
@@ -101,13 +101,13 @@ function Navigation({ openNavBar, isLoggedIn }) {
             className="navigation__link-movies"
             to="/movies"
             activeClassName="navigation__ink_active">
-            Фильмы
+            Медиа
           </NavLink>
           <NavLink
             className="navigation__link-movies"
             to="/saved-movies"
             activeClassName="navigation__ink_active">
-            Сохранённые фильмы
+            Контент
           </NavLink>
           <NavLink
             className="navigation__link-profile"

@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && scp -r ./build/* sovick90@158.160.5.193:~/movies-explorer-frontend/build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

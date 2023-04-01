@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import MoviesCard from "../MoviesCard/MoviesCard";
-import "./MoviesCardList.css";
+import "./MoviesCardList.scss";
 import NotFound from "../NotFound/NotFound";
 import { useEffect } from "react";
 

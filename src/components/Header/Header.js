@@ -1,7 +1,7 @@
 import React from "react";
 import headerLogo from "../../image/logo.svg";
 import Navigation from "../Navigation/Navigation";
-import "./Header.css";
+import "./Header.scss";
 
 function Header({ openNavBar, isLoggedIn }) {
   return (

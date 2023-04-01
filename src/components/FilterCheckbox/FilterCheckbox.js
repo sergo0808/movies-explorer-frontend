@@ -1,4 +1,4 @@
-import "./FilterCheckbox.css";
+import "./FilterCheckbox.scss";
 import border from "./../../image/border.svg";
 
 function FilterCheckbox({ onChecked, isChecked }) {

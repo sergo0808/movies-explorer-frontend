@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import "./Profile.css";
+import "./Profile.scss";
 import { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";

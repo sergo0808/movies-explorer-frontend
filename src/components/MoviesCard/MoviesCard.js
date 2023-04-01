@@ -1,4 +1,4 @@
-import "./MoviesCard.css";
+import "./MoviesCard.scss";
 import { useLocation } from "react-router-dom";
 
 function MoviesCard({ img, name, duration, like, trailerLink, onSave, card }) {

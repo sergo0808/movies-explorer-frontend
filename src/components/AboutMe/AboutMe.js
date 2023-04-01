@@ -1,5 +1,5 @@
 import React from "react";
-import "./AboutMe.css";
+import "./AboutMe.scss";
 import arrow from "../../image/link_img.svg";
 import imageMe from "../../image/me.jpg";
 

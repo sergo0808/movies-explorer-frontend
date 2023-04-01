@@ -1,4 +1,4 @@
-import "./Form.css";
+import "./Form.scss";
 import logo from "../../image/logo.svg";
 import { Link } from "react-router-dom";
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Movies.css";
+import "./Movies.scss";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Preloader from "../Preloader/Preloader";
